@@ -454,3 +454,377 @@ h2 em, h1 span, .feature-sticker em { color: #c57f60; font-weight: 400; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+
+
+/* HERO IMAGE FIX — DESKTOP */
+
+@media (min-width: 951px) {
+  .hero-grid {
+    grid-template-columns: 43% minmax(0, 57%);
+  }
+
+  .hero-art {
+    height: auto;
+    min-height: 540px;
+    margin-right: 0;
+    padding: 25px 0;
+  }
+
+  .hero-picture {
+    width: min(680px, 100%);
+    height: auto;
+    aspect-ratio: 1122 / 865;
+  }
+}
+
+/* Display the entire photo without cropping */
+
+.hero-picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.photo-frame-label {
+  left: 18px;
+  top: 28px;
+  max-width: calc(100% - 36px);
+}
+
+.hero-float {
+  left: 5px;
+  bottom: 16px;
+}
+
+/* TABLET */
+
+@media (min-width: 951px) and (max-width: 1150px) {
+  .hero-art {
+    min-height: 470px;
+  }
+}
+
+@media (max-width: 950px) {
+  .hero-art {
+    height: auto;
+    min-height: 0;
+    padding: 18px 0 24px;
+  }
+
+  .hero-picture {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1122 / 865;
+  }
+
+  .hero-float {
+    left: 0;
+    bottom: 3px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .hero-art {
+    margin-top: 24px;
+  }
+
+  .hero-picture {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1122 / 865;
+  }
+
+  .photo-frame-label {
+    top: 13px;
+    left: 13px;
+    font-size: 8px;
+    padding: 7px 9px;
+  }
+
+  .hero-float {
+    bottom: 0;
+    left: 0;
+  }
+}
+
+/* ==========================================
+   TIES & TAILS — GRADIENT HERO PHOTO
+   Removes the arch shape and image cropping
+   Responsive for desktop, tablet, and mobile
+   ========================================== */
+
+/* Main hero section */
+.hero-section {
+  position: relative;
+  background: linear-gradient(
+    110deg,
+    #fff5eb 2%,
+    #fbe4d5 52%,
+    #f9daca 100%
+  );
+  overflow: hidden;
+}
+
+/* Desktop layout */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 42% minmax(0, 58%);
+  align-items: center;
+  position: relative;
+  min-height: 603px;
+  z-index: 1;
+}
+
+/* Photo container */
+.hero-art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: auto;
+  min-height: 0;
+
+  margin: 0;
+  padding: 15px 0;
+
+  background: transparent;
+  overflow: visible;
+}
+
+/* Remove the arch, borders and shadows */
+.hero-picture {
+  position: relative;
+
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  aspect-ratio: 1122 / 865;
+
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  background: transparent;
+  overflow: hidden;
+
+  /* Soft fade around photo edges */
+  -webkit-mask-image: radial-gradient(
+    ellipse 76% 75% at 50% 49%,
+    #000 55%,
+    rgba(0, 0, 0, 0.95) 69%,
+    rgba(0, 0, 0, 0.45) 86%,
+    transparent 100%
+  );
+
+  mask-image: radial-gradient(
+    ellipse 76% 75% at 50% 49%,
+    #000 55%,
+    rgba(0, 0, 0, 0.95) 69%,
+    rgba(0, 0, 0, 0.45) 86%,
+    transparent 100%
+  );
+}
+
+/* Photo itself */
+.hero-picture img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  border: none;
+  border-radius: 0 !important;
+  box-shadow: none;
+
+  transform: none;
+}
+
+/* Remove labels covering the photo */
+.photo-frame-label,
+.hero-float {
+  display: none !important;
+}
+
+/* Decorative elements */
+.hero-squiggle {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  color: #d29c7b;
+  font-size: 45px;
+  opacity: 0.7;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Make sure text appears above decorations */
+.hero-copy {
+  position: relative;
+  z-index: 3;
+}
+
+/* ==========================================
+   SMALL DESKTOP / TABLET
+   ========================================== */
+
+@media (max-width: 1150px) {
+  .hero-grid {
+    grid-template-columns: 45% minmax(0, 55%);
+  }
+
+  .hero-art {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .hero-picture {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1122 / 865;
+  }
+
+  .hero-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* ==========================================
+   TABLET
+   ========================================== */
+
+@media (max-width: 950px) {
+  .hero-grid {
+    grid-template-columns: 48% minmax(0, 52%);
+    min-height: 500px;
+  }
+
+  .hero-art {
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-picture {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    aspect-ratio: 1122 / 865;
+  }
+
+  .hero-picture img {
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 700px) {
+  .hero-section {
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    min-height: auto;
+    padding-top: 46px;
+    padding-bottom: 35px;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 3;
+    padding: 0 5px;
+  }
+
+  .hero-art {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    margin: 20px auto 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: visible;
+  }
+
+  .hero-picture {
+    width: 100%;
+    max-width: 590px;
+    height: auto;
+    aspect-ratio: 1122 / 865;
+
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .hero-picture img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 0 !important;
+  }
+
+  .hero-squiggle {
+    right: 0;
+    top: 0;
+    font-size: 28px;
+  }
+
+  .photo-frame-label,
+  .hero-float {
+    display: none !important;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE PHONES
+   ========================================== */
+
+@media (max-width: 370px) {
+  .hero-grid {
+    padding-bottom: 25px;
+  }
+
+  .hero-art {
+    margin-top: 15px;
+  }
+
+  .hero-picture {
+    width: 100%;
+    aspect-ratio: 1122 / 865;
+  }
+}
+
